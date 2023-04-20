@@ -218,6 +218,29 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Теги
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('tags.index')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Список тегов</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('tags.create')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Создать тег</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
                 </ul>
             </nav>
@@ -227,9 +250,29 @@
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
-@yield('content')
-    <!-- /.content-wrapper -->
-
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    @if($errors->any())
+                        <div class="alert alert-danger  mt-2">
+                            <ul class="list-unstyled">
+                                @foreach($errors->all() as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    @if(session()->has('success'))
+                        <div class="alert alert-success mt-2">
+                            {{session('success')}}
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+        @yield('content')
+    </div>
     <footer class="main-footer">
         <div class="float-right d-none d-sm-block">
             <b>Version</b> 3.2.0
