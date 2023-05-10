@@ -26,15 +26,15 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Новая категория</label>
+                                    <label for="title">Название</label>
                                     <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Название статьи">
                                 </div>
                                 <div class="form-group">
-                                    <lable for="description">Цитата</lable>
+                                    <label for="description">Цитата</label>
                                     <textarea class="form-control @error('dercription') is-invalid @enderror" name="description" id="description" rows="3" placeholder="Цитата ..."></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <lable for="content">Контент</lable>
+                                    <label for="content">Контент</label>
                                     <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content" rows="7" placeholder="Контент ..."></textarea>
                                 </div>
                                 <div class="form-group">

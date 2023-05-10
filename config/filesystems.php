@@ -38,9 +38,9 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => public_path('./uploads'),
-//            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+//            'root' => public_path('./uploads'),
+            'root' => public_path('images'), // Новый путь к папке для сохранения картинок
+            'url' => env('APP_URL').'/images',
             'visibility' => 'public',
             'throw' => false,
         ],
