@@ -10,7 +10,17 @@
 (function ($) {
   'use strict'
 
-  // setTimeout(function () {
+    $(function () {
+        //Initialize Select2 Elements
+        $('.select2').select2()
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+    })
+
+    // setTimeout(function () {
   //   if (window.___browserSync___ === undefined && Number(localStorage.getItem('AdminLTE:Demo:MessageShowed')) < Date.now()) {
   //     localStorage.setItem('AdminLTE:Demo:MessageShowed', (Date.now()) + (15 * 60 * 1000))
   //     // eslint-disable-next-line no-alert
