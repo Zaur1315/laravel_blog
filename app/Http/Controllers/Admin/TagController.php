@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
@@ -72,8 +73,16 @@ class TagController extends Controller
      */
     public function destroy(string $id)
     {
+//
+//        Tag::destroy($id);
+//        return redirect()-> route('tags.index')->with('success', 'Тег удален');
 
-        Tag::destroy($id);
+        $tag = Tag::find($id);
+        if($tag->posts->count()){
+            return redirect()->route('tags.index')->with('error', "Ошибка! У тега есть записи");
+        }
+        $tag->delete();
+//        Category::destroy($id);
         return redirect()-> route('tags.index')->with('success', 'Тег удален');
     }
 }

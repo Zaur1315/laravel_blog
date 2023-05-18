@@ -8,6 +8,11 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="{{asset('assets/admin/css/admin.css')}}">
+    <style>
+        .ck-editor__editable{
+            min-height: 300px;
+        }
+    </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -291,6 +296,11 @@
                             {{session('success')}}
                         </div>
                     @endif
+                        @if(session()->has('error'))
+                            <div class="alert alert-danger mt-2">
+                                {{session('error')}}
+                            </div>
+                        @endif
                 </div>
             </div>
         </div>
@@ -320,15 +330,36 @@
         }
     });
 
-    // $(function () {
-    //     //Initialize Select2 Elements
-    //     $('.select2').select2()
-    //
-    //     //Initialize Select2 Elements
-    //     $('.select2bs4').select2({
-    //         theme: 'bootstrap4'
-    //     })
-    // })
+</script>
+
+<script src="{{asset('assets/admin/ck/build/ckeditor.js')}}"></script>
+{{--<script src="{{asset('assets/admin/ckfinder/ckfinder.js')}}"></script>--}}
+
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#content' ), {
+
+            toolbar: [
+                    'imageUpload', '|', 'heading', '|', 'undo', 'redo', '|', 'bold', 'italic', '|',
+                'blockQuote', 'indent', 'link', '|', 'bulletedList', 'numberedList'
+            ],
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#description' ), {
+            toolbar: [
+                'heading', '|', 'undo', 'redo', '|', 'bold', 'italic', '|',
+                'blockQuote', 'indent', 'link', '|', 'bulletedList', 'numberedList'
+            ],
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
 </script>
 
 </body>
